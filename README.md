@@ -7,9 +7,9 @@
 pip install -r requirements.txt
 ```
 
-#### 2. run command
+#### 2. run command (get urls)
 
 ```shell
-scrapy runspider crawler.py
+scrapy runspider get_urls.py
 ```
 
