@@ -1,7 +1,7 @@
 import scrapy
 
-class KanjiSpider(scrapy.Spider):
-    name = "kanji_spider"
+class GetURL(scrapy.Spider):
+    name = "get_urls"
     endpoint = "https://jisho.org/search/"
     text_file = open("kanji.txt")
     start_urls = []
@@ -14,5 +14,5 @@ class KanjiSpider(scrapy.Spider):
         print "\n"
         DICT_SELECTOR = ".no-bullet li"
         for item in response.css(DICT_SELECTOR):
-            print item.css("a ::attr(href)").extract_first()
-            
+            with open("links.txt", "a") as myfile:
+                myfile.write(item.css("a ::attr(href)").extract_first()+"\n")
